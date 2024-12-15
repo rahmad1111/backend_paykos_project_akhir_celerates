@@ -1,0 +1,33 @@
+POST http://localhost:3131/apikos/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE0LCJuYW1hIjoiVGVzIiwibm9tZXJfcGVuZ2d1bmEiOiI4MDQwMjQiLCJpYXQiOjE3MzQwNjYyMDcsImV4cCI6MTczNDA2OTgwN30.1qDKkkQjEDPsLYZWCCg6jEnJBkcJwTSbh2pHWZCbb7I
+Content-Type: application/json
+{
+    "id_pemilik": 1
+}
+###
+POST http://localhost:3131/apikos/v1/users
+Content-Type: application/json
+
+{
+    "harga_kamar":"Tesss",
+    "nama":"Tes",
+    "no_telepon":"Tes",
+    "roles":"Tes",
+    "nomer_kamar":1,
+    "periode_pembayaran":"Tes",
+    "nomer_pengguna": "804025",
+    "password":"12345"
+}
+
+
+###
+POST http://localhost:3131/apikos/v1/auth/signin
+Content-Type: application/json
+
+{
+    "nomer_pengguna":"804025",
+    "password":"12345"
+}
+
+###
+DELETE http://localhost:3131/apikos/v1/auth/logout
