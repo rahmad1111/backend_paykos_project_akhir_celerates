@@ -1,18 +1,30 @@
 require("dotenv").config();
 const config = {
   development: {
-    username: "mrifk",
-    password: "",
-    database: "mrifk",
-    host: "127.0.0.1",
+    username: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE,
+    host: process.env.PGHOST,
     dialect: "postgres",
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
   },
   production: {
-    username: "mrifk",
-    password: "",
-    database: "mrifk",
-    host: "127.0.0.1",
+    username: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE,
+    host: process.env.PGHOST,
     dialect: "postgres",
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
   },
 };
 
