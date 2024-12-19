@@ -1,8 +1,6 @@
 const { where } = require("sequelize");
 const { Pembayaran } = require("../models");
 require("dotenv").config();
-const { createClient } = require("@supabase/supabase-js");
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPA_KEY);
 
 const findAllPembayaranbyId = async (req, res) => {
   const { id } = req.params;
