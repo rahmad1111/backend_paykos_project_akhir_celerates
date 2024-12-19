@@ -86,18 +86,17 @@ const updatePembayaranpengguna = async (req, res) => {
 };
 
 const createPembayaran = async (req, res) => {
-    const {
-        id_penghuni,
-        jenis_pembayaran,
-        batas_waktu,
-        no_rekening,
-        tanggal_bayar,
-        bukti,
-        status,
-        id_pemilik,
-    } = req.body;
-
     try {
+        const {
+            id_penghuni,
+            jenis_pembayaran,
+            batas_waktu,
+            no_rekening,
+            tanggal_bayar,
+            bukti,
+            status,
+            id_pemilik,
+        } = req.body;
         const result = await Pembayaran.create({
             id_penghuni,
             jenis_pembayaran,
