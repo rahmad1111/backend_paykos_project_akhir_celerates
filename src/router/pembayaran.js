@@ -13,7 +13,7 @@ const multer = require("multer");
 const upload = multer({ storage: multer.memoryStorage() });
 
 // Pembayaran
-router.get("/All/:id", AuthMiddle, findAllPembayaranbyId); // Pemilik kost id spesifik melihat semua pembayaran
+router.get("/all/:id", AuthMiddle, findAllPembayaranbyId); // Pemilik kost id spesifik melihat semua pembayaran
 router.get("/:id", AuthMiddle, findInfoPembayaranbyId); // Pengguna kost melihat semua pembayaran
 router.post("/", AuthMiddle, createPembayaran); // Pemilik kost membuat pembayaran
 router.patch("/penghuni/:id", AuthMiddle, findAllPembayaranpenggunaByid); // Pengguna memperbarui info pembayaran
