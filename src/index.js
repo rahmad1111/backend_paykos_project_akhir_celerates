@@ -13,24 +13,18 @@ app.use(cookieParser());
 // middleware yang di gunakan untuk parse JSON request
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: true,
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  })
-);
+app.use(cors({ origin: "*" }));
 
 // import router dari folder router
 app.use(router);
 
-// pesan awal saat menjalankan server
 app.get("/", (req, res) => {
   res.send({
     message: "Selamat datang di API yang menggunakan Express.js",
     version: "1.0.0",
   });
 });
+// pesan awal saat menjalankan server
 
 app.listen(port, () => {
   console.log(`Berjalan di http://localhost:${port}`);
