@@ -15,16 +15,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   Pembayaran.init({
     id_penghuni: DataTypes.INTEGER,
-    id_data_kos: DataTypes.INTEGER,
-    harga: DataTypes.STRING,
     jenis_pembayaran: DataTypes.STRING,
     batas_waktu: DataTypes.STRING,
     no_rekening: DataTypes.STRING,
-    periode_pembayaran: DataTypes.STRING,
-    jumlah_pembayaran: DataTypes.STRING,
     tanggal_bayar: DataTypes.DATE,
     bukti: DataTypes.STRING,
-    status: DataTypes.BOOLEAN
+    status: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Pembayaran',

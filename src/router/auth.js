@@ -6,4 +6,4 @@ const router = require('express').Router();
 router.post('/signin', login);
 router.delete('/logout', logout);
 
-module.exports = router
+module.exports = router;

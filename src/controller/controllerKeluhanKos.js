@@ -50,4 +50,29 @@ const updatebyIdKeluhanKos = async (req, res) => {
     })
 }
 
-module.exports = {findAllKeluhanKos,updatebyIdKeluhanKos,createKeluhanKos}
+const deleteKeluhanKos = async (req, res) => {
+    try {
+        // Get params by id
+        const { id } = req.params
+        // Find user by id from params
+        const keluhan = await Keluhan_kos.findByPk(id)
+        if (!keluhan) {
+            return res.status(404).json({
+                status: 404,
+                message: 'Data user not found'
+            })
+        }
+        // Delete user
+        await keluhan.destroy()
+        // view the data
+        res.json({
+            status: 200,
+            message: 'Data user deleted'
+        })
+
+    } catch (error) {
+        console.log(error, '-----data user not deleted----')
+    }
+}
+
+module.exports = {findAllKeluhanKos,updatebyIdKeluhanKos,createKeluhanKos, deleteKeluhanKos}
