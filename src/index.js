@@ -10,7 +10,8 @@ const routers = require("./router/routes");
 
 app.use(express.json());
 app.use(morgan("combined"));
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ 
+    origin: "http://localhost:5173" }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,12 +19,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(routers);
 
 app.get("/", (req, res) => {
-  res.send({
-    message: "Hallo 👋",
-    status: "Server ready 🚀",
-  });
+    res.send({
+        message: "Hallo 👋",
+        status: "Server ready 🚀",
+    });
 });
 
 app.listen(port, () => {
-  console.log(`Server ready listening on http://localhost:${port}`);
+    console.log(`Server ready listening on http://localhost:${port}`);
 });

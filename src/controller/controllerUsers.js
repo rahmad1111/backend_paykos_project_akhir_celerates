@@ -3,16 +3,12 @@ const { User } = require('../models')
 const bcrypt = require('bcrypt')
 
 const findAllUsers = async (req, res) => {
-    // Get all users
-    // const { id_pemilik } = Number(req.body.id_pemilik);
-    // console.log('Datanya : ', id_pemilik)
     const data = await User.findAll({
         where: {
             id_pemilik: req.body.id_pemilik
         }
     })
 
-    // Get all
     res.json({
         status: 200,
         datas: data
@@ -20,7 +16,6 @@ const findAllUsers = async (req, res) => {
 }
 
 const findAllPengguna = async (req, res) => {
-    // Get all users
     const { id_pemilik } = Number(req.body);
     console.log('Datanya : ', id_pemilik)
     const data = await User.findAll({
