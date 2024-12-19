@@ -9,7 +9,6 @@ const bodyParser = require("body-parser");
 
 // middleware yang di gunakan untuk melihat log request
 morgan("combined");
-app.use(cookieParser());
 // middleware yang di gunakan untuk parse JSON request
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
