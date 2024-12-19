@@ -76,6 +76,7 @@ const createPembayaran = async (req, res) => {
     batas_waktu,
     no_rekening,
     tanggal_bayar,
+    bukti,
     status,
     id_pemilik,
   } = req.body;
@@ -87,6 +88,7 @@ const createPembayaran = async (req, res) => {
       batas_waktu,
       no_rekening,
       tanggal_bayar,
+      bukti,
       status,
       id_pemilik,
       createdAt: new Date(),
