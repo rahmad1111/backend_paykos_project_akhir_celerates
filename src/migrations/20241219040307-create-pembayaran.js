@@ -10,23 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       id_penghuni: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references:{
-          model: 'Users',
-          key: 'id'
-        }
-      },
-      id_data_kos: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references:{
-          model: 'Data_kos',
-          key: 'id'
-        }
-      },
-      harga: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       jenis_pembayaran: {
         type: Sequelize.STRING
@@ -37,12 +21,6 @@ module.exports = {
       no_rekening: {
         type: Sequelize.STRING
       },
-      periode_pembayaran: {
-        type: Sequelize.STRING
-      },
-      jumlah_pembayaran: {
-        type: Sequelize.STRING
-      },
       tanggal_bayar: {
         type: Sequelize.DATE
       },
@@ -50,7 +28,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       status: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
