@@ -10,7 +10,13 @@ const routers = require("./router/routes");
 
 app.use(express.json());
 app.use(morgan("combined"));
-app.use(cors({ origin: "*" }));
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  })
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
