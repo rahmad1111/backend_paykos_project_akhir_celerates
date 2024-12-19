@@ -1,31 +1,29 @@
 const express = require("express");
-const app = express();
-const port = 3232;
-const router = require("./router/routes");
-const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-// middleware yang di gunakan untuk melihat log request
-morgan("combined");
-app.use(cookieParser());
-// middleware yang di gunakan untuk parse JSON request
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+const app = express();
+const port = process.env.PORT || 3001;
+
+const routers = require("./router/routes");
+
+app.use(express.json());
+app.use(morgan("combined"));
 app.use(cors({ origin: "*" }));
 
-// import router dari folder router
-app.use(router);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(routers);
 
 app.get("/", (req, res) => {
   res.send({
-    message: "Selamat datang di API yang menggunakan Express.js",
-    version: "1.0.0",
+    message: "Hallo 👋",
+    status: "Server ready 🚀",
   });
 });
-// pesan awal saat menjalankan server
 
 app.listen(port, () => {
-  console.log(`Berjalan di http://localhost:${port}`);
+  console.log(`Server ready listening on http://localhost:${port}`);
 });
