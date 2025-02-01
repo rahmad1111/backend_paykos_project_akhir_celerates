@@ -11,7 +11,8 @@ const routers = require("./router/routes");
 app.use(express.json());
 app.use(morgan("combined"));
 app.use(cors({ 
-    origin: "https://frondend-paykos-project-akhir-celerates.vercel.app" }));
+    origin: ["https://frondend-paykos-project-akhir-celerates.vercel.app", "http://localhost:5173"]
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
