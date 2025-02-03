@@ -142,7 +142,7 @@ const konfirmasiPembayaranPemilik = async (req, res) => {
         // Update the payment status and payment date
         await pembayaran.update({
             status,
-            tanggal_bayar: status === "Sudah Bayar" ? new Date() : null,
+            tanggal_bayar: new Date(),
         });
 
         res.status(200).json({
