@@ -158,6 +158,46 @@ const konfirmasiPembayaranPemilik = async (req, res) => {
     }
 };
 
+const konfirmasiPembayaranPenghuni = async (req, res) => {
+    const {
+        id
+    } = req.params; // Payment ID
+    const {
+        jenis_pembayaran,
+        bukti,
+    } = req.body; // Status from the frontend
+
+    try {
+        const pembayaran = await Pembayaran.findByPk(id);
+
+        if (!pembayaran) {
+            return res.status(404).json({
+                status: 404,
+                message: "Pembayaran not found",
+            });
+        }
+
+        // Update the payment status and payment date
+        await pembayaran.update({
+            jenis_pembayaran,
+            bukti,
+            tanggal_bayar: new Date(),
+            status: "Belum Kofirmasi",
+        });
+
+        res.status(200).json({
+            status: 200,
+            message: "Pembayaran status updated successfully",
+            data: pembayaran,
+        });
+    } catch (error) {
+        res.status(500).json({
+            status: 500,
+            error: error.message,
+        });
+    }
+};
+
 module.exports = {
     findAllPembayaranbyId,
     findInfoPembayaranbyId,
@@ -165,4 +205,5 @@ module.exports = {
     updatePembayaranpengguna,
     findAllPembayaranpenggunaByid,
     konfirmasiPembayaranPemilik,
+    konfirmasiPembayaranPenghuni
 };

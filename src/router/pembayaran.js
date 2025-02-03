@@ -5,6 +5,7 @@ const {
   findAllPembayaranpenggunaByid,
   findInfoPembayaranbyId,
   konfirmasiPembayaranPemilik,
+  konfirmasiPembayaranPenghuni
 } = require("../controller/controllerPembayaran");
 const AuthMiddle = require("../middleware(wait)/VerifyToken.js");
 
@@ -18,6 +19,7 @@ router.get("/:id", AuthMiddle, findInfoPembayaranbyId); // Pengguna kost melihat
 router.post("/", AuthMiddle, createPembayaran); // Pemilik kost membuat pembayaran
 router.patch("/penghuni/:id", AuthMiddle, findAllPembayaranpenggunaByid); // Pengguna memperbarui info pembayaran
 router.put("/:id", AuthMiddle, konfirmasiPembayaranPemilik); // Pemilik kost konfirmasi pembayaran
+router.put("/konfirmasi/:id", AuthMiddle, konfirmasiPembayaranPenghuni); // Pemilik kost konfirmasi pembayaran
 // router.post('/pembayaran', upload.single("profile_image"), createPembayaran)
 
 module.exports = router;
